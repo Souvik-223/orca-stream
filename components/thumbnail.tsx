@@ -1,22 +1,22 @@
 import Image from "next/image";
 
 import { Skeleton } from "@/components/ui/skeleton";
-import { LiveBadge } from "@/components/live-badge";
-import { UserAvatar } from "@/components/user-avatar";
+import { LiveBadge } from "@/components/liveBadge";
+import { UserAvatar } from "@/components/userAvatar";
 
 interface ThumbnailProps {
   src: string | null;
   fallback: string;
   isLive: boolean;
   username: string;
-};
+}
 
-export const Thumbnail = ({ 
+export const Thumbnail = ({
   src,
   fallback,
   isLive,
   username,
- }: ThumbnailProps) => {
+}: ThumbnailProps) => {
   let content;
 
   // If there is no thumbnail, we'll show the user's avatar instead.
@@ -31,7 +31,7 @@ export const Thumbnail = ({
           isLive={isLive}
         />
       </div>
-    )
+    );
     // If there is a thumbnail, we'll show it.
   } else {
     content = (
@@ -41,7 +41,7 @@ export const Thumbnail = ({
         alt="Thumbnail"
         className="object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
       />
-    )
+    );
   }
 
   // If the stream is live, we'll show the live badge.

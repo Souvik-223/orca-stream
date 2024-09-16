@@ -6,41 +6,42 @@ import { createViewerToken } from "@/actions/token";
 
 // host identity is the id of the user who is streaming
 export const UseViewerToken = (hostIdentity: string) => {
-    const [token, setToken] = useState("");
-    const [name, setName] = useState("");
-    const [identity, setIdentity] = useState("");
+  const [token, setToken] = useState("");
+  const [name, setName] = useState("");
+  const [identity, setIdentity] = useState("");
 
-    // uses token.ts to create a token for the viewer to join the room 
-    // who is watching the stream
-    useEffect(() => {
-        const createToken = async () => {
-          try {
-            const viewerToken = await createViewerToken(hostIdentity);
-            setToken(viewerToken);
-    
-            const decodedToken = jwtDecode(viewerToken) as JwtPayload & { name?: string }
-            const name = decodedToken?.name;
-            const identity = decodedToken.jti;
-    
-            if (identity) {
-              setIdentity(identity);
-            }
-    
-            if (name) {
-              setName(name);
-            }
-    
-          } catch {
-            toast.error("Something went wrong");
-          }
+  // uses token.ts to create a token for the viewer to join the room
+  // who is watching the stream
+  useEffect(() => {
+    const createToken = async () => {
+      try {
+        const viewerToken = await createViewerToken(hostIdentity);
+        setToken(viewerToken);
+
+        const decodedToken = jwtDecode(viewerToken) as JwtPayload & {
+          name?: string;
+        };
+        const name = decodedToken?.name;
+        const identity = decodedToken.jti;
+
+        if (identity) {
+          setIdentity(identity);
         }
-    
-        createToken();
-      }, [hostIdentity]);
-    
-      return {
-        token,
-        name,
-        identity,
-      };
+
+        if (name) {
+          setName(name);
+        }
+      } catch {
+        toast.error("Something went wrong");
+      }
+    };
+
+    createToken();
+  }, [hostIdentity]);
+
+  return {
+    token,
+    name,
+    identity,
+  };
 };
