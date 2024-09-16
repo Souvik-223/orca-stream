@@ -3,13 +3,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { ConnectionState } from "livekit-client";
 import { useMediaQuery } from "usehooks-ts";
-import { 
+import {
   useChat,
-  useConnectionState, 
-  useRemoteParticipant
+  useConnectionState,
+  useRemoteParticipant,
 } from "@livekit/components-react";
 
-import { ChatVariant, useChatSidebar } from "@/store/use-chat-sidebar";
+import { ChatVariant, useChatSidebar } from "@/store/useChatSidebar";
 
 import { ChatForm, ChatFormSkeleton } from "./chat-form";
 import { ChatList, ChatListSkeleton } from "./chat-list";
@@ -24,7 +24,7 @@ interface ChatProps {
   isChatEnabled: boolean;
   isChatDelayed: boolean;
   isChatFollowersOnly: boolean;
-};
+}
 
 export const Chat = ({
   hostName,
@@ -33,15 +33,15 @@ export const Chat = ({
   isFollowing,
   isChatEnabled,
   isChatDelayed,
-  isChatFollowersOnly
+  isChatFollowersOnly,
 }: ChatProps) => {
-  const matches = useMediaQuery('(max-width: 1024px)');
+  const matches = useMediaQuery("(max-width: 1024px)");
   const { variant, onExpand } = useChatSidebar((state) => state);
   // livekit hooks
   const connectionState = useConnectionState();
   const participant = useRemoteParticipant(hostIdentity);
 
-  const isOnline = participant && connectionState === ConnectionState.Connected
+  const isOnline = participant && connectionState === ConnectionState.Connected;
 
   const isHidden = !isChatEnabled || !isOnline;
 
@@ -76,10 +76,7 @@ export const Chat = ({
       <ChatHeader />
       {variant === ChatVariant.CHAT && (
         <>
-          <ChatList
-            messages={reversedMessages}
-            isHidden={isHidden}
-          />
+          <ChatList messages={reversedMessages} isHidden={isHidden} />
           <ChatForm
             onSubmit={onSubmit}
             value={value}

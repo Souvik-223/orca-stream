@@ -4,19 +4,16 @@ import { MessageSquare, Users } from "lucide-react";
 
 import { Hint } from "@/components/hint";
 import { Button } from "@/components/ui/button";
-import { ChatVariant, useChatSidebar } from "@/store/use-chat-sidebar";
+import { ChatVariant, useChatSidebar } from "@/store/useChatSidebar";
 
 export const VariantToggle = () => {
-  const {
-    variant,
-    onChangeVariant,
-  } = useChatSidebar((state) => state);
+  const { variant, onChangeVariant } = useChatSidebar((state) => state);
 
   // dynamically render the correct icon depending on the variant state
   const isChat = variant === ChatVariant.CHAT;
 
   // toggles the variant state
-  const Icon = isChat ? Users : MessageSquare
+  const Icon = isChat ? Users : MessageSquare;
 
   // dynamically render the correct label depending on the variant state
   const onToggle = () => {

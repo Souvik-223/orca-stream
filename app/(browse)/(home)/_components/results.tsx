@@ -1,4 +1,4 @@
-import { getStreams } from "@/lib/feed-service";
+import { getStreams } from "@/lib/feedService";
 import { Skeleton } from "@/components/ui/skeleton";
 
 import { ResultCard, ResultCardSkeleton } from "./result-card";

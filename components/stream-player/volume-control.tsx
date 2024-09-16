@@ -9,7 +9,7 @@ interface VolumeControlProps {
   onToggle: () => void;
   onChange: (value: number) => void;
   value: number;
-};
+}
 
 export const VolumeControl = ({
   onToggle,
