@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.5.0",
     "@clerk/nextjs": "^4.29.9",
     "@clerk/themes": "^1.7.10",
     "@livekit/components-react": "^2.4.3",
@@ -29,7 +30,7 @@
     "date-fns": "^4.0.0",
     "jwt-decode": "^4.0.0",
     "livekit-client": "^2.5.1",
-    "livekit-server-sdk": "^2.6.1",
+    "livekit-server-sdk": "^2.6.2",
     "lucide-react": "^0.344.0",
     "next": "14.1.1",
     "next-themes": "^0.3.0",
@@ -42,12 +43,14 @@
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "usehooks-ts": "^3.0.2",
+    "uuid": "^10.0.0",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/uuid": "^10.0.0",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.1.1",

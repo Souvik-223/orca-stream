@@ -9,7 +9,7 @@ import {
   type CreateIngressOptions,
 } from "livekit-server-sdk";
 
-import { TrackSource } from "livekit-server-sdk/dist/proto/livekit_models";
+import { TrackSource } from "livekit-server-sdk";
 
 import { db } from "@/lib/db";
 import { getSelf } from "@/lib/authService";
