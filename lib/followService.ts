@@ -5,7 +5,7 @@ export const getFollowedUsers = async () => {
   try {
     const self = await getSelf();
 
-    const followedUsers = db.follow.findMany({
+    const followedUsers = await db.follow.findMany({
       where: {
         followerId: self.id,
         following: {
@@ -84,7 +84,7 @@ export const followUser = async (id: string) => {
   });
 
   if (!otherUser) {
-    throw new Error("User not found");
+    throw new Error("Target user not found");
   }
 
   if (otherUser.id === self.id) {

@@ -37,7 +37,7 @@ export const Header = ({
   // creates a unique identity for the host
   const hostAsViewer = `host-${hostIdentity}`;
   // checks if the viewer is the host
-  const isHost = viewerIdentity === hostIdentity;
+  const isHost = viewerIdentity === hostAsViewer;
 
   return (
     <div className="flex flex-col lg:flex-row gap-y-4 lg:gap-y-0 items-start justify between px-4">

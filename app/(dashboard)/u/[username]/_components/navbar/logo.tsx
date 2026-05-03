@@ -15,8 +15,8 @@ export const Logo = () => {
             <div className="flex items-center gap-x-4 hover:opacity-75 transition">
                 <div className="bg-white rounded-full p-1 mr-2 shring-0 lg:mr-0 lg:shrink">
                     <Image
-                    src="/smile.svg"
-                    alt="streamgames"
+                    src="/logo.png"
+                    alt="Orca-Stream"
                     height="32"
                     width="32"
                     />
@@ -26,7 +26,7 @@ export const Logo = () => {
                     font.className
                     )}>
                     <p className="text-lg font-semibold">
-                        StreamGames
+                        Orca-Stream
                     </p>
                     <p className="text-xs text-muted-foreground">
                         Creator Dashboard
